@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: zektech-portfolio-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node index.js
+    envVars:
+      - key: PORT
+        value: 3001
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+      - key: CONTACT_EMAIL
+        sync: false

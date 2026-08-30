@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary Meta Tags -->
+    <title>Inibehe John (ZekTech) | Full-Stack Web Developer</title>
+    <meta name="title" content="Inibehe John (ZekTech) | Full-Stack Web Developer" />
+    <meta
+      name="description"
+      content="Inibehe John (ZekTech) is a Full-Stack Developer building modern, responsive, accessible, and high-performance websites and web applications. Explore projects, skills, and services."
+    />
+    <meta name="author" content="Inibehe Ezekiel John" />
+    <meta
+      name="keywords"
+      content="ZekTech, Inibehe John, Full-Stack Developer, Web Developer, React Developer, Frontend Developer, Backend Developer, Portfolio, Nigeria"
+    />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#2563eb" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://your-portfolio-domain.com/" />
+    <meta property="og:title" content="Inibehe John (ZekTech) | Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="Full-Stack Developer building modern, responsive web experiences. Explore projects, skills, and services."
+    />
+    <meta property="og:image" content="/og-image.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://your-portfolio-domain.com/" />
+    <meta property="twitter:title" content="Inibehe John (ZekTech) | Full-Stack Web Developer" />
+    <meta
+      property="twitter:description"
+      content="Full-Stack Developer building modern, responsive web experiences. Explore projects, skills, and services."
+    />
+    <meta property="twitter:image" content="/og-image.svg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
+
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        var isDark;
+        if (theme === 'light' || theme === 'dark') {
+          isDark = theme === 'dark';
+        } else {
+          isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        document.documentElement.classList.toggle('dark', isDark);
+        document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

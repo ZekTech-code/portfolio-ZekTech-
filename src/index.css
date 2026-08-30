@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --portfolio-bg-primary: #f9fafb;
+  --portfolio-bg-secondary: #f1f3f5;
+  --portfolio-text-primary: #1a1a2e;
+  --portfolio-text-secondary: #4a4a5a;
+  --portfolio-text-muted: #6b7280;
+  --portfolio-border: #d1d5db;
+  --portfolio-accent: #2563eb;
+  --portfolio-accent-hover: #1d4ed8;
+  --portfolio-header-surface: color-mix(in srgb, var(--portfolio-bg-primary) 80%, var(--portfolio-accent) 20%);
+  --portfolio-glass-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 86%, transparent);
+  --portfolio-hover-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 80%, var(--portfolio-accent) 20%);
+  --portfolio-accent-soft: color-mix(in srgb, var(--portfolio-accent) 12%, transparent);
+  --portfolio-accent-glow: color-mix(in srgb, var(--portfolio-accent) 20%, transparent);
+  --portfolio-shadow-soft: color-mix(in srgb, var(--portfolio-text-primary) 8%, transparent);
+
+  --color-bg-primary: var(--portfolio-bg-primary);
+  --color-bg-secondary: var(--portfolio-bg-secondary);
+  --color-text-primary: var(--portfolio-text-primary);
+  --color-text-secondary: var(--portfolio-text-secondary);
+  --color-text-muted: var(--portfolio-text-muted);
+  --color-border-default: var(--portfolio-border);
+  --color-accent-default: var(--portfolio-accent);
+  --color-accent-hover-default: var(--portfolio-accent-hover);
+}
+
+.dark {
+  --portfolio-bg-primary: #000000;
+  --portfolio-bg-secondary: #000000;
+  --portfolio-text-primary: #ffffff;
+  --portfolio-text-secondary: #e5e5e5;
+  --portfolio-text-muted: #a3a3a3;
+  --portfolio-border: #262626;
+  --portfolio-accent: #60a5fa;
+  --portfolio-accent-hover: #3b82f6;
+  --portfolio-header-surface: color-mix(in srgb, var(--portfolio-bg-primary) 72%, var(--portfolio-accent) 10%);
+  --portfolio-glass-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 76%, transparent);
+  --portfolio-hover-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 78%, var(--portfolio-accent) 22%);
+  --portfolio-accent-soft: color-mix(in srgb, var(--portfolio-accent) 18%, transparent);
+  --portfolio-accent-glow: color-mix(in srgb, var(--portfolio-accent) 28%, transparent);
+  --portfolio-shadow-soft: color-mix(in srgb, var(--portfolio-accent) 18%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--portfolio-bg-primary);
+  --color-surface: var(--portfolio-bg-secondary);
+  --color-foreground: var(--portfolio-text-primary);
+  --color-secondary: var(--portfolio-text-secondary);
+  --color-muted: var(--portfolio-text-muted);
+  --color-border: var(--portfolio-border);
+  --color-accent: var(--portfolio-accent);
+  --color-accent-hover: var(--portfolio-accent-hover);
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  min-width: 320px;
+  background: var(--portfolio-bg-primary);
+  color: var(--portfolio-text-primary);
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+::selection {
+  background: var(--portfolio-accent);
+  color: var(--portfolio-bg-primary);
+}
+
+.premium-header {
+  background:
+    linear-gradient(
+      135deg,
+      var(--portfolio-header-surface),
+      color-mix(in srgb, var(--portfolio-bg-primary) 86%, transparent)
+    );
+  box-shadow: 0 18px 60px var(--portfolio-shadow-soft);
+}
+
+.premium-glass {
+  background:
+    linear-gradient(
+      135deg,
+      var(--portfolio-glass-surface),
+      color-mix(in srgb, var(--portfolio-bg-secondary) 72%, var(--portfolio-accent-soft))
+    );
+  box-shadow: 0 14px 42px var(--portfolio-shadow-soft);
+}
+
+.premium-logo-mark {
+  background:
+    radial-gradient(circle at 28% 18%, var(--portfolio-accent-hover), transparent 34%),
+    linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-text-primary));
+  box-shadow: 0 14px 34px var(--portfolio-accent-glow);
+}
+
+.premium-interactive {
+  position: relative;
+  isolation: isolate;
+  transition:
+    transform 260ms ease,
+    border-color 260ms ease,
+    background-color 260ms ease,
+    color 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.premium-interactive::after {
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-accent-hover));
+  content: "";
+  opacity: 0;
+  transition: opacity 260ms ease;
+}
+
+.premium-interactive:hover,
+.premium-interactive:focus-visible {
+  transform: translateY(-2px);
+  border-color: var(--portfolio-accent);
+  background: var(--portfolio-hover-surface);
+  box-shadow: 0 16px 36px var(--portfolio-accent-glow);
+}
+
+.premium-interactive:hover::after,
+.premium-interactive:focus-visible::after {
+  opacity: 0.22;
+}
+
+.premium-primary-action {
+  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-accent-hover));
+  box-shadow: 0 16px 36px var(--portfolio-accent-glow);
+  transition:
+    transform 260ms ease,
+    filter 260ms ease,
+    box-shadow 260ms ease;
+}
+
+.premium-primary-action:hover,
+.premium-primary-action:focus-visible {
+  filter: saturate(1.12) brightness(1.04);
+  box-shadow: 0 20px 46px var(--portfolio-accent-glow);
+  transform: translateY(-2px);
+}
+
+.premium-card-hover {
+  transition:
+    transform 280ms ease,
+    border-color 280ms ease,
+    background-color 280ms ease,
+    box-shadow 280ms ease;
+}
+
+.premium-card-hover:hover,
+.premium-card-hover:focus-visible {
+  border-color: var(--portfolio-accent);
+  background: var(--portfolio-hover-surface);
+  box-shadow: 0 22px 54px var(--portfolio-accent-glow);
+}
+
+.typing-letter {
+  animation: typing-letter-color 2.4s ease-in-out infinite;
+  color: hsl(calc(210 + (var(--letter-index) * 28)) 82% 55%);
+  text-shadow: 0 0 14px hsl(calc(210 + (var(--letter-index) * 28)) 82% 55% / 0.16);
+  will-change: color, filter, text-shadow;
+}
+
+@keyframes typing-letter-color {
+  0%,
+  100% {
+    color: hsl(calc(210 + (var(--letter-index) * 28)) 82% 55%);
+    filter: saturate(1);
+    text-shadow: 0 0 12px hsl(calc(210 + (var(--letter-index) * 28)) 82% 55% / 0.14);
+  }
+
+  25% {
+    color: hsl(calc(175 + (var(--letter-index) * 28)) 78% 48%);
+    filter: saturate(1.15);
+    text-shadow: 0 0 18px hsl(calc(175 + (var(--letter-index) * 28)) 78% 48% / 0.2);
+  }
+
+  50% {
+    color: hsl(calc(270 + (var(--letter-index) * 28)) 82% 62%);
+    filter: saturate(1.25) brightness(1.08);
+    text-shadow: 0 0 22px hsl(calc(270 + (var(--letter-index) * 28)) 82% 62% / 0.28);
+  }
+
+  75% {
+    color: hsl(calc(330 + (var(--letter-index) * 28)) 76% 56%);
+    filter: saturate(1.12);
+    text-shadow: 0 0 18px hsl(calc(330 + (var(--letter-index) * 28)) 76% 56% / 0.2);
+  }
+}
+
+.dark .typing-letter {
+  filter: brightness(1.08);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.skeleton-pulse {
+  animation: skeleton-pulse 1.8s ease-in-out infinite;
+}
+
+/* Global custom scrollbar (Firefox) */
+@supports (scrollbar-color: auto) and (scrollbar-width: auto) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--portfolio-accent) transparent;
+  }
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--portfolio-accent);
+  border-radius: 9999px;
+  transition: background 200ms ease;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--portfolio-accent-hover);
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* Performance hints */
+section {
+  contain: layout style;
+  will-change: auto;
+}
+
+img {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 200px;
+}
