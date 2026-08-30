@@ -6,8 +6,6 @@ services:
     buildCommand: npm install
     startCommand: node index.js
     envVars:
-      - key: PORT
-        value: 3001
       - key: GROQ_API_KEY
         sync: false
       - key: ALLOWED_ORIGINS
