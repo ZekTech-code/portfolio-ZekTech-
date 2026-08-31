@@ -63,7 +63,7 @@ function Contact() {
   const chatSectionRef = useRef(null);
 
   useEffect(() => {
-    const handler = () => {
+    const openHandler = () => {
       setShowChat(true);
       setTimeout(() => {
         chatSectionRef.current?.scrollIntoView({
@@ -72,8 +72,26 @@ function Contact() {
         });
       }, 50);
     };
-    window.addEventListener("open-ai-chat", handler);
-    return () => window.removeEventListener("open-ai-chat", handler);
+    const toggleHandler = () => {
+      setShowChat((prev) => {
+        const next = !prev;
+        if (next) {
+          setTimeout(() => {
+            chatSectionRef.current?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }, 50);
+        }
+        return next;
+      });
+    };
+    window.addEventListener("open-ai-chat", openHandler);
+    window.addEventListener("toggle-ai-chat", toggleHandler);
+    return () => {
+      window.removeEventListener("open-ai-chat", openHandler);
+      window.removeEventListener("toggle-ai-chat", toggleHandler);
+    };
   }, []);
 
   return (

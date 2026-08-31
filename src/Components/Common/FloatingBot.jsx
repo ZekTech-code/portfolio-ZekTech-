@@ -3,12 +3,13 @@ import TalkingBotIcon from "../Chat/TalkingBotIcon";
 
 function FloatingBot() {
   const handleClick = () => {
-    const target = document.getElementById("contact");
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        window.dispatchEvent(new Event("open-ai-chat"));
-      }, 600);
+    const contact = document.getElementById("contact");
+    const toggleEvent = () => window.dispatchEvent(new Event("toggle-ai-chat"));
+    if (contact) {
+      contact.scrollIntoView({ behavior: "smooth" });
+      setTimeout(toggleEvent, 600);
+    } else {
+      toggleEvent();
     }
   };
 
