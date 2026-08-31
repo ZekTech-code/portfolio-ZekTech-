@@ -60,7 +60,7 @@ function About() {
         >
           <motion.div
             aria-hidden="true"
-            className="absolute -inset-6 rounded-full bg-linear-to-br from-accent/24 via-accent-hover/12 to-accent/5 blur-3xl"
+            className="absolute -inset-6 rounded-full bg-accent/24 blur-3xl"
             animate={{ opacity: [0.45, 0.8, 0.45], scale: [1, 1.04, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
           />

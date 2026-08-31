@@ -96,10 +96,10 @@ const PROJECTS = [
 ];
 
 const PLACEHOLDER_BG = [
-  "from-accent/20 via-accent/10 to-transparent",
-  "from-accent/15 via-accent/8 to-transparent",
-  "from-accent/25 via-accent/12 to-transparent",
-  "from-accent/18 via-accent/9 to-transparent",
+  "bg-accent/10",
+  "bg-accent/5",
+  "bg-accent/15",
+  "bg-accent/8",
 ];
 
 const containerVariants = {
@@ -147,7 +147,7 @@ function ProjectImage({ project, placeholderBg }) {
   if (project.image) {
     return (
       <div className="p-3 pb-0">
-        <div className="relative flex h-36 w-full items-center justify-center overflow-hidden rounded-xl bg-linear-to-br from-surface/80 to-background/40 transition-colors duration-300">
+        <div className="relative flex h-36 w-full items-center justify-center overflow-hidden rounded-xl bg-surface transition-colors duration-300">
           <img
             src={project.image}
             alt={project.title}
@@ -164,7 +164,7 @@ function ProjectImage({ project, placeholderBg }) {
 
   return (
     <div className="p-3 pb-0">
-      <div className={`flex h-36 items-center justify-center rounded-xl border border-border/50 bg-linear-to-br ${placeholderBg}`}>
+      <div className={`flex h-36 items-center justify-center rounded-xl border border-border/50 ${placeholderBg}`}>
         <span className="text-[10px] font-bold uppercase tracking-widest text-muted sm:text-xs">
           {project.title}
         </span>
@@ -184,7 +184,7 @@ function ProjectCard({ project, index }) {
     >
       <div className="relative isolate overflow-hidden">
         <ProjectImage project={project} placeholderBg={placeholderBg} />
-        <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-background/20 via-transparent to-transparent opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 bg-background/20 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
       </div>
 
       <div className="flex flex-1 flex-col p-4">

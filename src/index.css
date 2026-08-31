@@ -3,17 +3,17 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  --portfolio-bg-primary: #f9fafb;
-  --portfolio-bg-secondary: #f1f3f5;
-  --portfolio-text-primary: #1a1a2e;
-  --portfolio-text-secondary: #4a4a5a;
-  --portfolio-text-muted: #6b7280;
+  --portfolio-bg-primary: #ffffff;
+  --portfolio-bg-secondary: #ffffff;
+  --portfolio-text-primary: #000000;
+  --portfolio-text-secondary: #000000;
+  --portfolio-text-muted: #555555;
   --portfolio-border: #d1d5db;
   --portfolio-accent: #2563eb;
   --portfolio-accent-hover: #1d4ed8;
-  --portfolio-header-surface: color-mix(in srgb, var(--portfolio-bg-primary) 80%, var(--portfolio-accent) 20%);
-  --portfolio-glass-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 86%, transparent);
-  --portfolio-hover-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 80%, var(--portfolio-accent) 20%);
+  --portfolio-header-surface: var(--portfolio-bg-primary);
+  --portfolio-glass-surface: var(--portfolio-bg-secondary);
+  --portfolio-hover-surface: var(--portfolio-bg-secondary);
   --portfolio-accent-soft: color-mix(in srgb, var(--portfolio-accent) 12%, transparent);
   --portfolio-accent-glow: color-mix(in srgb, var(--portfolio-accent) 20%, transparent);
   --portfolio-shadow-soft: color-mix(in srgb, var(--portfolio-text-primary) 8%, transparent);
@@ -32,14 +32,14 @@
   --portfolio-bg-primary: #000000;
   --portfolio-bg-secondary: #000000;
   --portfolio-text-primary: #ffffff;
-  --portfolio-text-secondary: #e5e5e5;
+  --portfolio-text-secondary: #ffffff;
   --portfolio-text-muted: #a3a3a3;
   --portfolio-border: #262626;
   --portfolio-accent: #60a5fa;
   --portfolio-accent-hover: #3b82f6;
-  --portfolio-header-surface: color-mix(in srgb, var(--portfolio-bg-primary) 72%, var(--portfolio-accent) 10%);
-  --portfolio-glass-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 76%, transparent);
-  --portfolio-hover-surface: color-mix(in srgb, var(--portfolio-bg-secondary) 78%, var(--portfolio-accent) 22%);
+  --portfolio-header-surface: var(--portfolio-bg-primary);
+  --portfolio-glass-surface: var(--portfolio-bg-secondary);
+  --portfolio-hover-surface: var(--portfolio-bg-secondary);
   --portfolio-accent-soft: color-mix(in srgb, var(--portfolio-accent) 18%, transparent);
   --portfolio-accent-glow: color-mix(in srgb, var(--portfolio-accent) 28%, transparent);
   --portfolio-shadow-soft: color-mix(in srgb, var(--portfolio-accent) 18%, transparent);
@@ -74,29 +74,17 @@ body {
 }
 
 .premium-header {
-  background:
-    linear-gradient(
-      135deg,
-      var(--portfolio-header-surface),
-      color-mix(in srgb, var(--portfolio-bg-primary) 86%, transparent)
-    );
+  background: var(--portfolio-header-surface);
   box-shadow: 0 18px 60px var(--portfolio-shadow-soft);
 }
 
 .premium-glass {
-  background:
-    linear-gradient(
-      135deg,
-      var(--portfolio-glass-surface),
-      color-mix(in srgb, var(--portfolio-bg-secondary) 72%, var(--portfolio-accent-soft))
-    );
+  background: var(--portfolio-glass-surface);
   box-shadow: 0 14px 42px var(--portfolio-shadow-soft);
 }
 
 .premium-logo-mark {
-  background:
-    radial-gradient(circle at 28% 18%, var(--portfolio-accent-hover), transparent 34%),
-    linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-text-primary));
+  background: var(--portfolio-accent);
   box-shadow: 0 14px 34px var(--portfolio-accent-glow);
 }
 
@@ -116,7 +104,7 @@ body {
   inset: -1px;
   z-index: -1;
   border-radius: inherit;
-  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-accent-hover));
+  background: var(--portfolio-accent);
   content: "";
   opacity: 0;
   transition: opacity 260ms ease;
@@ -136,7 +124,7 @@ body {
 }
 
 .premium-primary-action {
-  background: linear-gradient(135deg, var(--portfolio-accent), var(--portfolio-accent-hover));
+  background: var(--portfolio-accent);
   box-shadow: 0 16px 36px var(--portfolio-accent-glow);
   transition:
     transform 260ms ease,

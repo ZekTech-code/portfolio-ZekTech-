@@ -184,7 +184,7 @@ function Hero() {
             variants={fadeUp}
             className="max-w-4xl text-[1.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
             <span className="block text-foreground">Inibehe Ezekiel John</span>
-            <span className="block bg-linear-to-r from-accent via-accent-hover to-accent bg-clip-text text-transparent">
+            <span className="block text-accent">
               ZekTech
             </span>
           </motion.h1>
@@ -271,7 +271,7 @@ function Hero() {
             }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute inset-16 overflow-hidden rounded-full bg-linear-to-br from-accent via-accent-hover to-accent p-1 shadow-2xl shadow-accent/20">
+            className="absolute inset-16 overflow-hidden rounded-full bg-accent p-1 shadow-2xl shadow-accent/20">
             <div className="h-full w-full overflow-hidden rounded-full border border-white/30 bg-surface">
               <img
                 src={profileImage}

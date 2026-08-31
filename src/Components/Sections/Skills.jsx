@@ -88,7 +88,7 @@ function ProgressBar({ value, index, isInView }) {
         initial={{ width: 0 }}
         animate={{ width: isInView ? `${value}%` : 0 }}
         transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 + index * 0.06 }}
-        className="h-full rounded-full bg-linear-to-r from-accent to-accent-hover shadow-[0_0_6px_var(--portfolio-accent-glow)]"
+        className="h-full rounded-full bg-accent shadow-[0_0_6px_var(--portfolio-accent-glow)]"
       />
     </div>
   );

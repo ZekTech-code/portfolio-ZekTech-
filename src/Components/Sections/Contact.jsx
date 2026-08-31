@@ -159,10 +159,6 @@ function Contact() {
                   <div
                     aria-hidden="true"
                     className="pointer-events-none absolute inset-0"
-                    style={{
-                      background:
-                        "radial-gradient(120% 90% at 85% -10%, color-mix(in srgb, var(--portfolio-accent) 16%, transparent) 0%, transparent 55%), radial-gradient(100% 80% at 10% 110%, color-mix(in srgb, var(--portfolio-accent) 12%, transparent) 0%, transparent 50%)",
-                    }}
                   />
 
                   <svg
@@ -182,21 +178,6 @@ function Contact() {
                       opacity="0.5"
                     />
                   </svg>
-
-                  <div
-                    aria-hidden="true"
-                    className="pointer-events-none absolute inset-0"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(var(--portfolio-accent) 1px, transparent 1.6px)",
-                      backgroundSize: "22px 22px",
-                      WebkitMaskImage:
-                        "radial-gradient(80% 70% at 50% 30%, black 0%, transparent 75%)",
-                      maskImage:
-                        "radial-gradient(80% 70% at 50% 30%, black 0%, transparent 75%)",
-                      opacity: 0.18,
-                    }}
-                  />
 
                   <div
                     aria-hidden="true"
