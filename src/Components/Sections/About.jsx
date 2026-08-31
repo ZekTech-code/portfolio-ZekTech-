@@ -76,6 +76,8 @@ function About() {
             <img
               src={aboutImage}
               alt="Portrait of Inibehe Ezekiel John"
+              width="400"
+              height="400"
               loading="lazy"
               decoding="async"
               className="h-full w-full rounded-full object-cover object-[center_50%]"

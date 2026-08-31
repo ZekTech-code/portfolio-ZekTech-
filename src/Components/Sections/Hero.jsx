@@ -276,7 +276,9 @@ function Hero() {
               <img
                 src={profileImage}
                 alt="Portrait illustration of Inibehe Ezekiel John"
-                loading="lazy"
+                width="400"
+                height="400"
+                fetchPriority="high"
                 decoding="async"
                 className="h-full w-full object-cover object-[center_68%]"
               />

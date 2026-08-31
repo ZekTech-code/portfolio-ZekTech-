@@ -151,7 +151,10 @@ function ProjectImage({ project, placeholderBg }) {
           <img
             src={project.image}
             alt={project.title}
+            width="640"
+            height="360"
             loading="lazy"
+            decoding="async"
             className="max-h-full max-w-full rounded-lg object-contain transition-transform duration-500 group-hover:scale-105"
           />
         </div>
