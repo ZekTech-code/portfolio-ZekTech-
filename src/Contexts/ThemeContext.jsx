@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { useState, useEffect, useCallback, useMemo, useRef } from "react";
+import { ThemeContext } from "./themeContext";
 
 const THEME_KEY = "theme";
 const MODES = ["light", "dark", "system"];
@@ -26,8 +27,6 @@ function applyTheme(mode, systemTheme) {
   root.style.colorScheme = isDark ? "dark" : "light";
   window.localStorage.setItem(THEME_KEY, mode);
 }
-
-const ThemeContext = createContext(null);
 
 function ThemeProvider({ children }) {
   const [mode, setMode] = useState(getInitialMode);
@@ -86,4 +85,4 @@ function ThemeProvider({ children }) {
   return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
 }
 
-export { ThemeProvider, ThemeContext };
+export { ThemeProvider };

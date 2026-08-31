@@ -1,5 +1,5 @@
 import { useContext, useDebugValue } from "react";
-import { ThemeContext } from "../Contexts/ThemeContext";
+import { ThemeContext } from "../Contexts/themeContext";
 
 function useTheme() {
   const context = useContext(ThemeContext);
