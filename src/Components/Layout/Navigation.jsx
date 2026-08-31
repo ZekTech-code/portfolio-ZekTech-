@@ -67,7 +67,7 @@ function NavigationLink({ item, activeSection, onNavigate, variant = "desktop" }
 
 export function DesktopNavigation({ activeSection, onNavigate }) {
   return (
-    <div className="premium-glass hidden items-center rounded-2xl border border-border p-1 backdrop-blur-xl lg:flex">
+    <div className="hidden items-center rounded-2xl border border-border bg-background p-1 lg:flex">
       {NAV_ITEMS.map((item) => (
         <NavigationLink
           key={item.href}
