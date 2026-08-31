@@ -60,18 +60,12 @@ function About() {
         >
           <motion.div
             aria-hidden="true"
-            className="absolute -inset-6 rounded-full bg-accent/24 blur-3xl"
-            animate={{ opacity: [0.45, 0.8, 0.45], scale: [1, 1.04, 1] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          />
-          <motion.div
-            aria-hidden="true"
-            className="absolute inset-4 rounded-full border border-accent/25"
+            className="absolute inset-4 rounded-full border border-border/40"
             animate={{ rotate: 360 }}
             transition={{ duration: 28, repeat: Infinity, ease: "linear" }}
           />
           <div
-            className="relative h-full w-full overflow-hidden rounded-full border border-accent/35 bg-surface p-2 shadow-2xl shadow-accent/15"
+            className="relative h-full w-full overflow-hidden rounded-full border border-border/70 bg-surface p-2 shadow-2xl"
           >
             <img
               src={aboutImage}
@@ -127,18 +121,7 @@ function About() {
 
 function AboutBackground() {
   return (
-    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
-      <motion.div
-        className="absolute -left-44 top-24 h-80 w-80 rounded-full bg-accent/10 blur-3xl"
-        animate={{ x: [0, 24, 0], opacity: [0.45, 0.75, 0.45] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -right-32 bottom-24 h-96 w-96 rounded-full bg-accent-hover/10 blur-3xl"
-        animate={{ x: [0, -18, 0], y: [0, 18, 0], opacity: [0.35, 0.7, 0.35] }}
-        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
-      />
-    </div>
+    <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10" />
   );
 }
 

@@ -155,41 +155,7 @@ body {
 }
 
 .typing-letter {
-  animation: typing-letter-color 2.4s ease-in-out infinite;
-  color: hsl(calc(210 + (var(--letter-index) * 28)) 82% 55%);
-  text-shadow: 0 0 14px hsl(calc(210 + (var(--letter-index) * 28)) 82% 55% / 0.16);
-  will-change: color, filter, text-shadow;
-}
-
-@keyframes typing-letter-color {
-  0%,
-  100% {
-    color: hsl(calc(210 + (var(--letter-index) * 28)) 82% 55%);
-    filter: saturate(1);
-    text-shadow: 0 0 12px hsl(calc(210 + (var(--letter-index) * 28)) 82% 55% / 0.14);
-  }
-
-  25% {
-    color: hsl(calc(175 + (var(--letter-index) * 28)) 78% 48%);
-    filter: saturate(1.15);
-    text-shadow: 0 0 18px hsl(calc(175 + (var(--letter-index) * 28)) 78% 48% / 0.2);
-  }
-
-  50% {
-    color: hsl(calc(270 + (var(--letter-index) * 28)) 82% 62%);
-    filter: saturate(1.25) brightness(1.08);
-    text-shadow: 0 0 22px hsl(calc(270 + (var(--letter-index) * 28)) 82% 62% / 0.28);
-  }
-
-  75% {
-    color: hsl(calc(330 + (var(--letter-index) * 28)) 76% 56%);
-    filter: saturate(1.12);
-    text-shadow: 0 0 18px hsl(calc(330 + (var(--letter-index) * 28)) 76% 56% / 0.2);
-  }
-}
-
-.dark .typing-letter {
-  filter: brightness(1.08);
+  color: var(--portfolio-text-primary);
 }
 
 @media (prefers-reduced-motion: reduce) {

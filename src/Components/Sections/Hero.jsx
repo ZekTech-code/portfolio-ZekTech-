@@ -261,9 +261,8 @@ function Hero() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ delay: 0.2, duration: 0.75, ease: "easeOut" }}
           className="relative z-10 mx-auto aspect-square w-full max-w-65 sm:max-w-sm lg:max-w-lg">
-          <div className="absolute inset-7 rounded-full bg-accent/20 blur-3xl" />
           <div className="absolute inset-0 rounded-full border border-border/70" />
-          <div className="absolute inset-12 rounded-full border border-accent/20" />
+          <div className="absolute inset-12 rounded-full border border-border/40" />
 
           <motion.div
             whileHover={{
@@ -271,8 +270,8 @@ function Hero() {
             }}
             whileTap={{ scale: 0.98 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
-            className="absolute inset-16 overflow-hidden rounded-full bg-accent p-1 shadow-2xl shadow-accent/20">
-            <div className="h-full w-full overflow-hidden rounded-full border border-white/30 bg-surface">
+            className="absolute inset-16 overflow-hidden rounded-full bg-surface p-1 shadow-2xl">
+            <div className="h-full w-full overflow-hidden rounded-full border border-border/70 bg-surface">
               <img
                 src={profileImage}
                 alt="Portrait illustration of Inibehe Ezekiel John"
@@ -414,36 +413,10 @@ function HeroBackground() {
     <div
       aria-hidden="true"
       className="pointer-events-none absolute inset-0 -z-10">
-      <motion.div
-        className="absolute -left-48 top-24 h-96 w-96 rounded-full bg-accent/12 blur-3xl"
-        animate={{ x: [0, 28, 0], y: [0, -18, 0], scale: [1, 1.08, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute -right-40 top-44 h-112 w-md rounded-full bg-accent-hover/12 blur-3xl"
-        animate={{ x: [0, -24, 0], y: [0, 22, 0], scale: [1, 1.06, 1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-8 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-accent/10 blur-3xl"
-        animate={{ opacity: [0.45, 0.8, 0.45] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute left-[10%] top-[28%] h-24 w-24 rounded-full bg-accent-hover/8 blur-2xl"
-        animate={{ y: [0, -20, 0], opacity: [0.35, 0.7, 0.35] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="absolute bottom-[18%] right-[12%] h-32 w-32 rounded-full bg-accent/8 blur-2xl"
-        animate={{ y: [0, 18, 0], opacity: [0.3, 0.65, 0.3] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       {particles.map((particle) => (
         <motion.span
           key={particle.id}
-          className="absolute h-1.5 w-1.5 rounded-full bg-accent/35"
+          className="absolute h-1.5 w-1.5 rounded-full bg-muted/40"
           style={{ left: particle.left, top: particle.top }}
           animate={{ y: [0, -18, 0], opacity: [0.25, 0.85, 0.25] }}
           transition={{

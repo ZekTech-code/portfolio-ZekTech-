@@ -10,10 +10,7 @@ import { motion } from "framer-motion";
 
 function LayoutBackground() {
   return (
-    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
-      <div className="absolute -left-40 top-1/4 h-96 w-96 rounded-full bg-accent/3 blur-3xl" />
-      <div className="absolute -right-40 bottom-1/4 h-80 w-80 rounded-full bg-accent-hover/2 blur-3xl" />
-    </div>
+    <div aria-hidden="true" className="pointer-events-none fixed inset-0 -z-10 overflow-hidden" />
   );
 }
 
