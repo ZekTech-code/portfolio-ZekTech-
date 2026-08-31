@@ -24,8 +24,8 @@ function Header() {
   const headerClassName = useMemo(
     () =>
       isScrolled
-        ? "border-border premium-header backdrop-blur-xl"
-        : "border-transparent bg-background/55 backdrop-blur-md",
+        ? "border-border bg-background"
+        : "border-transparent bg-background",
     [isScrolled],
   );
 
@@ -171,7 +171,7 @@ function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.22, ease: "easeOut" }}
-            className="premium-glass border-t border-border px-4 pb-5 pt-3 backdrop-blur-xl lg:hidden"
+            className="border-t border-border bg-background px-4 pb-5 pt-3 lg:hidden"
           >
             <div className="mx-auto grid max-w-7xl gap-2">
               <MobileNavigation
