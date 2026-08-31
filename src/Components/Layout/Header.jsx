@@ -6,7 +6,7 @@
  * a responsive mobile menu with smooth animated transitions.
  */
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, animate, motion } from "framer-motion";
 import { FiArrowRight, FiMenu, FiMoon, FiSun, FiX } from "react-icons/fi";
 import useTheme from "../../Hooks/useTheme";
@@ -17,17 +17,8 @@ const HEADER_OFFSET = 88;
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const { isDark, toggleTheme } = useTheme();
-
-  const headerClassName = useMemo(
-    () =>
-      isScrolled
-        ? "border-border bg-background"
-        : "border-transparent bg-background",
-    [isScrolled],
-  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +36,6 @@ function Header() {
       }
 
       setActiveSection((prev) => (prev === current ? prev : current));
-      setIsScrolled(scrollY > 12);
     };
 
     handleScroll();
@@ -99,7 +89,7 @@ function Header() {
       initial={{ y: -120 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${headerClassName}`}
+      className={`fixed inset-x-0 top-0 z-50 bg-background transition-all duration-300`}
     >
       <nav
         aria-label="Primary navigation"
