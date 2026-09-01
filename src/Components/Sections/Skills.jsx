@@ -30,12 +30,7 @@ const SKILLS = [
   { name: "AI-Powered Development", icon: FiRadio, brandColor: "text-accent" },
 ];
 
-const CROSS_LAYOUT = [
-  { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
-  { x: 5, y: 4 }, { x: 6, y: 4 }, { x: 7, y: 4 },
-  { x: 4, y: 1 }, { x: 4, y: 2 }, { x: 4, y: 3 },
-  { x: 4, y: 5 }, { x: 4, y: 6 },
-];
+const DESKTOP_ROWS = 4;
 
 const containerVariants = {
   hidden: {},
@@ -83,15 +78,14 @@ function CircularSkill({ skill, index, total, isInView }) {
   );
 }
 
-function CrossSkill({ skill, index, isInView, position }) {
+function CrossSkill({ skill, index, isInView }) {
   const Icon = skill.icon;
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.4 }}
-      animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.4 }}
-      transition={{ duration: 0.45, delay: 0.1 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
-      style={{ gridColumn: position.x, gridRow: position.y }}
+      initial={{ opacity: 0, y: 24, scale: 0.7 }}
+      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 24, scale: isInView ? 1 : 0.7 }}
+      transition={{ duration: 0.5, delay: (index % DESKTOP_ROWS) * 0.1, ease: [0.22, 1, 0.36, 1] }}
       tabIndex={0}
       role="listitem"
       aria-label={skill.name}
@@ -171,17 +165,15 @@ function Skills() {
           viewport={{ once: true, amount: 0.15 }}
           role="list"
           aria-label="Skills overview"
-          className="relative mx-auto mt-12 hidden pb-12 md:block"
-          style={{ maxWidth: "45rem" }}
+          className="relative mx-auto mt-12 hidden max-w-3xl md:block"
         >
-          <div className="grid aspect-square w-full grid-cols-7 grid-rows-7 gap-1">
+          <div className="grid w-full grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
             {SKILLS.map((skill, i) => (
               <CrossSkill
                 key={skill.name}
                 skill={skill}
                 index={i}
                 isInView={isInView}
-                position={CROSS_LAYOUT[i]}
               />
             ))}
           </div>
