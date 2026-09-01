@@ -54,7 +54,7 @@ const knowledge = {
     {
       title: "Currency Converter",
       description: "",
-      technologies: ["React.js", "Firebase", "Stripe"],
+      technologies: ["React", "JavaScript", "Firebase", "Tailwind CSS"],
       liveUrl: "https://convertxapp.web.app",
       category: ["web application", "tool"],
       keywords: ["currency", "converter", "exchange", "tool"]
@@ -62,7 +62,7 @@ const knowledge = {
     {
       title: "Expense Tracker",
       description: "",
-      technologies: ["React.js", "Node.js", "Tailwind CSS", "REST API"],
+      technologies: ["React", "JavaScript", "Firebase", "Tailwind CSS"],
       liveUrl: "https://xpns-tracker-eta.vercel.app/",
       category: ["web application", "finance"],
       keywords: ["expense", "tracker", "finance", "budget"]
@@ -70,7 +70,7 @@ const knowledge = {
     {
       title: "Note App",
       description: "",
-      technologies: ["React.js", "JavaScript", "CSS3"],
+      technologies: ["React", "JavaScript", "Supabase", "Tailwind CSS"],
       liveUrl: "https://noteflow-jade.vercel.app/",
       category: ["web application", "productivity"],
       keywords: ["notes", "note", "productivity", "writing"]
@@ -78,7 +78,7 @@ const knowledge = {
     {
       title: "Tier Digital",
       description: "",
-      technologies: ["React.js", "Node.js", "PostgreSQL"],
+      technologies: ["React", "JavaScript", "Python", "Tailwind CSS"],
       liveUrl: "",
       category: ["web application"],
       keywords: ["tier", "digital"]
