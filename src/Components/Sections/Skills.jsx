@@ -15,34 +15,20 @@ import {
 import { FiRadio } from "react-icons/fi";
 import FigmaIcon from "../UI/FigmaIcon";
 
-const COLUMNS = [
-  {
-    skills: [
-      { name: "HTML5", value: 95, icon: SiHtml5, brandColor: "text-orange-500" },
-      { name: "CSS3", value: 92, icon: SiCss, brandColor: "text-blue-500" },
-      { name: "JavaScript", value: 90, icon: SiJavascript, brandColor: "text-yellow-400" },
-      { name: "React.js", value: 90, icon: SiReact, brandColor: "text-sky-400" },
-    ],
-  },
-  {
-    skills: [
-      { name: "Tailwind CSS", value: 95, icon: SiTailwindcss, brandColor: "text-cyan-400" },
-      { name: "Bootstrap", value: 90, icon: SiBootstrap, brandColor: "text-purple-500" },
-      { name: "Node.js", value: 75, icon: SiNodedotjs, brandColor: "text-green-500" },
-      { name: "Express.js", value: 70, icon: SiExpress, brandColor: "text-neutral-500" },
-    ],
-  },
-  {
-    skills: [
-      { name: "Git", value: 85, icon: SiGit, brandColor: "text-red-500" },
-      { name: "GitHub", value: 90, icon: SiGithub, brandColor: "text-foreground" },
-      { name: "Figma", value: 80, icon: FigmaIcon, brandColor: "" },
-      { name: "AI-Powered Development", value: 95, icon: FiRadio, brandColor: "text-accent" },
-    ],
-  },
+const SKILLS = [
+  { name: "HTML5", icon: SiHtml5, brandColor: "text-orange-500" },
+  { name: "CSS3", icon: SiCss, brandColor: "text-blue-500" },
+  { name: "JavaScript", icon: SiJavascript, brandColor: "text-yellow-400" },
+  { name: "React.js", icon: SiReact, brandColor: "text-sky-400" },
+  { name: "Tailwind CSS", icon: SiTailwindcss, brandColor: "text-cyan-400" },
+  { name: "Bootstrap", icon: SiBootstrap, brandColor: "text-purple-500" },
+  { name: "Node.js", icon: SiNodedotjs, brandColor: "text-green-500" },
+  { name: "Express.js", icon: SiExpress, brandColor: "text-neutral-500" },
+  { name: "Git", icon: SiGit, brandColor: "text-red-500" },
+  { name: "GitHub", icon: SiGithub, brandColor: "text-foreground" },
+  { name: "Figma", icon: FigmaIcon, brandColor: "" },
+  { name: "AI-Powered Development", icon: FiRadio, brandColor: "text-accent" },
 ];
-
-const SKILLS = COLUMNS.flatMap((col) => col.skills);
 
 const containerVariants = {
   hidden: {},
@@ -54,79 +40,41 @@ const fadeUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.58, ease: [0.22, 1, 0.36, 1] } },
 };
 
-const mobileFadeUp = {
-  hidden: { opacity: 0, y: 20, scale: 0.92 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.48, ease: [0.22, 1, 0.36, 1] } },
-};
-
 function SkillsBackground() {
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10 overflow-hidden" />
   );
 }
 
-function ProgressBar({ value, index, isInView }) {
-  return (
-    <div className="h-1.5 w-full overflow-hidden rounded-full bg-border/50">
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: isInView ? `${value}%` : 0 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1], delay: 0.15 + index * 0.06 }}
-        className="h-full rounded-full bg-accent shadow-[0_0_6px_var(--portfolio-accent-glow)]"
-      />
-    </div>
-  );
-}
-
-function MobileSkillCard({ skill }) {
+function CircularSkill({ skill, index, total, isInView }) {
   const Icon = skill.icon;
+  const angle = (index / total) * 360 - 90;
+  const rad = (angle * Math.PI) / 180;
+  const left = 50 + 42 * Math.cos(rad);
+  const top = 50 + 42 * Math.sin(rad);
 
   return (
     <motion.div
-      variants={mobileFadeUp}
-      whileTap={{ scale: 0.88 }}
+      initial={{ opacity: 0, scale: 0.6 }}
+      animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.6 }}
+      transition={{
+        duration: 0.5,
+        delay: 0.12 + index * 0.06,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      style={{ left: `${left}%`, top: `${top}%` }}
+      whileHover={{ scale: 1.12 }}
+      whileTap={{ scale: 0.92 }}
       tabIndex={0}
       role="listitem"
       aria-label={skill.name}
-      className="flex flex-col items-center gap-2 rounded-2xl p-3 outline-none transition-colors duration-300 focus-visible:bg-(--portfolio-accent-soft) focus-visible:ring-2 focus-visible:ring-accent"
+      className="absolute z-10 -translate-x-1/2 -translate-y-1/2 outline-none"
     >
-      <div className="grid h-11 w-11 place-items-center rounded-xl bg-(--portfolio-accent-soft) text-base">
-        <Icon aria-hidden="true" className={skill.brandColor} />
-      </div>
-      <span className="text-center text-[11px] font-extrabold leading-tight text-foreground">
-        {skill.name}
-      </span>
-    </motion.div>
-  );
-}
-
-function SkillItem({ skill, index, isInView }) {
-  const Icon = skill.icon;
-
-  return (
-    <motion.div
-      variants={fadeUp}
-      whileHover={{ x: 4 }}
-      transition={{ type: "spring", stiffness: 320, damping: 22 }}
-      tabIndex={0}
-      role="listitem"
-      aria-label={`${skill.name}, ${skill.value} percent proficiency`}
-      className="group flex items-center gap-3 rounded-2xl p-2.5 outline-none transition-colors duration-300 hover:bg-(--portfolio-accent-soft) focus-visible:bg-(--portfolio-accent-soft) focus-visible:ring-2 focus-visible:ring-accent"
-    >
-      <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-(--portfolio-accent-soft) text-lg transition-transform duration-300 group-hover:scale-110 group-focus:scale-110">
-        <Icon aria-hidden="true" className={skill.brandColor} />
-      </div>
-
-      <div className="min-w-0 flex-1">
-        <div className="mb-1.5 flex items-baseline justify-between gap-2">
-          <span className="truncate text-xl font-extrabold text-foreground transition-colors duration-300 group-hover:text-accent group-focus:text-accent">
-            {skill.name}
-          </span>
-          <span className="shrink-0 text-base font-extrabold text-muted transition-colors duration-300 group-hover:text-accent group-focus:text-accent">
-            {skill.value}%
-          </span>
-        </div>
-        <ProgressBar value={skill.value} index={index} isInView={isInView} />
+      <div className="flex h-12 w-12 flex-col items-center justify-center gap-0.5 rounded-2xl bg-(--portfolio-accent-soft) shadow-[0_4px_16px_var(--portfolio-shadow-soft)] transition-colors duration-300 focus-visible:ring-2 focus-visible:ring-accent sm:h-16 sm:w-16">
+        <Icon aria-hidden="true" className={`text-xl sm:text-2xl ${skill.brandColor}`} />
+        <span className="max-w-full px-1 text-center text-[7px] font-extrabold leading-none text-foreground sm:text-[8px]">
+          {skill.name}
+        </span>
       </div>
     </motion.div>
   );
@@ -135,6 +83,7 @@ function SkillItem({ skill, index, isInView }) {
 function Skills() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.15 });
+  const total = SKILLS.length;
 
   return (
     <section
@@ -167,33 +116,17 @@ function Skills() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           role="list"
-          className="mt-12 grid grid-cols-3 gap-4 md:hidden"
+          className="relative mx-auto mt-12 aspect-square w-full max-w-80 sm:max-w-md lg:max-w-lg"
         >
-          {SKILLS.map((skill) => (
-            <MobileSkillCard key={skill.name} skill={skill} />
+          {SKILLS.map((skill, i) => (
+            <CircularSkill
+              key={skill.name}
+              skill={skill}
+              index={i}
+              total={total}
+              isInView={isInView}
+            />
           ))}
-        </motion.div>
-
-        <motion.div
-          variants={containerVariants}
-          className="mt-14 hidden gap-x-6 gap-y-0 md:grid sm:grid-cols-2 lg:grid-cols-3">
-          {COLUMNS.map((column, colIndex) => {
-            const baseIndex = colIndex * 4;
-            return (
-              <motion.div key={colIndex} variants={fadeUp} className="min-w-0">
-                <div role="list" className="flex flex-col gap-1.5">
-                  {column.skills.map((skill, i) => (
-                    <SkillItem
-                      key={skill.name}
-                      skill={skill}
-                      index={baseIndex + i}
-                      isInView={isInView}
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            );
-          })}
         </motion.div>
 
         {/* <motion.div
