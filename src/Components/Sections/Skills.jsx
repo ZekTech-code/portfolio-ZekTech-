@@ -30,6 +30,13 @@ const SKILLS = [
   { name: "AI-Powered Development", icon: FiRadio, brandColor: "text-accent" },
 ];
 
+const CROSS_LAYOUT = [
+  { x: 1, y: 4 }, { x: 2, y: 4 }, { x: 3, y: 4 }, { x: 4, y: 4 },
+  { x: 5, y: 4 }, { x: 6, y: 4 }, { x: 7, y: 4 },
+  { x: 4, y: 1 }, { x: 4, y: 2 }, { x: 4, y: 3 },
+  { x: 4, y: 5 }, { x: 4, y: 6 },
+];
+
 const containerVariants = {
   hidden: {},
   visible: { transition: { staggerChildren: 0.08 } },
@@ -57,13 +64,9 @@ function CircularSkill({ skill, index, total, isInView }) {
     <motion.div
       initial={{ opacity: 0, scale: 0.6 }}
       animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.6 }}
-      transition={{
-        duration: 0.5,
-        delay: 0.12 + index * 0.06,
-        ease: [0.22, 1, 0.36, 1],
-      }}
+      transition={{ duration: 0.5, delay: 0.12 + index * 0.06, ease: [0.22, 1, 0.36, 1] }}
       style={{ left: `${left}%`, top: `${top}%` }}
-      whileHover={{ scale: 1.12 }}
+      whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.92 }}
       tabIndex={0}
       role="listitem"
@@ -75,6 +78,38 @@ function CircularSkill({ skill, index, total, isInView }) {
         <span className="max-w-full px-1 text-center text-[7px] font-extrabold leading-none text-foreground sm:text-[8px]">
           {skill.name}
         </span>
+      </div>
+    </motion.div>
+  );
+}
+
+function CrossSkill({ skill, index, isInView, position }) {
+  const Icon = skill.icon;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.4 }}
+      animate={{ opacity: isInView ? 1 : 0, scale: isInView ? 1 : 0.4 }}
+      transition={{ duration: 0.45, delay: 0.1 + index * 0.05, ease: [0.22, 1, 0.36, 1] }}
+      style={{ gridColumn: position.x, gridRow: position.y }}
+      tabIndex={0}
+      role="listitem"
+      aria-label={skill.name}
+      className="group relative grid place-items-center outline-none"
+    >
+      <div className="relative grid h-14 w-14 place-items-center rounded-full bg-(--portfolio-accent-soft) shadow-[0_4px_20px_var(--portfolio-shadow-soft)] ring-1 ring-border/40 transition-all duration-300 group-hover:scale-110 group-hover:bg-(--portfolio-accent-soft) group-hover:shadow-[0_8px_30px_var(--portfolio-accent-glow)] group-hover:ring-accent/40 focus-visible:ring-2 focus-visible:ring-accent lg:h-16 lg:w-16">
+        <Icon aria-hidden="true" className={`text-2xl lg:text-3xl ${skill.brandColor}`} />
+      </div>
+
+      <div className="pointer-events-none absolute bottom-full left-1/2 z-20 mb-3 -translate-x-1/2 translate-y-1 scale-95 whitespace-nowrap opacity-0 transition-all duration-200 ease-out group-hover:translate-y-0 group-hover:scale-100 group-hover:opacity-100 group-focus:translate-y-0 group-focus:scale-100 group-focus:opacity-100">
+        <div className="flex items-center gap-2 rounded-xl border border-accent/30 bg-background px-3 py-1.5 shadow-[0_8px_30px_var(--portfolio-shadow-soft)]">
+          <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
+          <span className="text-xs font-extrabold tracking-wide text-foreground">{skill.name}</span>
+        </div>
+        <div
+          className="mx-auto mt-[-1px] h-2 w-2 rotate-45 border-b border-r border-accent/30 bg-background"
+          aria-hidden="true"
+        />
       </div>
     </motion.div>
   );
@@ -116,7 +151,7 @@ function Skills() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.15 }}
           role="list"
-          className="relative mx-auto mt-12 aspect-square w-full max-w-80 sm:max-w-md lg:max-w-lg"
+          className="relative mx-auto mt-12 aspect-square w-full max-w-80 sm:max-w-md md:hidden"
         >
           {SKILLS.map((skill, i) => (
             <CircularSkill
@@ -129,17 +164,28 @@ function Skills() {
           ))}
         </motion.div>
 
-        {/* <motion.div
-          variants={fadeUp}
-          animate={{ y: [0, -5, 0] }}
-          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-          className="mx-auto mt-16 max-w-3xl rounded-2xl border border-border bg-(--portfolio-glass-surface) px-6 py-5 text-center text-sm font-semibold leading-relaxed text-secondary shadow-[0_8px_30px_var(--portfolio-shadow-soft)] backdrop-blur-xl sm:text-base">
-          <span aria-hidden="true" className="mr-2">
-            ✨
-          </span>
-          Always learning new technologies and building better digital
-          experiences every day.
-        </motion.div> */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.15 }}
+          role="list"
+          aria-label="Skills overview"
+          className="relative mx-auto mt-12 hidden pb-12 md:block"
+          style={{ maxWidth: "45rem" }}
+        >
+          <div className="grid aspect-square w-full grid-cols-7 grid-rows-7 gap-1">
+            {SKILLS.map((skill, i) => (
+              <CrossSkill
+                key={skill.name}
+                skill={skill}
+                index={i}
+                isInView={isInView}
+                position={CROSS_LAYOUT[i]}
+              />
+            ))}
+          </div>
+        </motion.div>
       </motion.div>
     </section>
   );
