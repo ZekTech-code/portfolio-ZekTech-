@@ -25,7 +25,6 @@ const ROLES = [
   "Website Developer",
   "Frontend Developer",
   "Backend Developer",
-  "AI Developer",
 ];
 
 const TECH_BADGES = [
