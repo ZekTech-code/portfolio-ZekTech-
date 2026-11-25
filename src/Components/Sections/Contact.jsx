@@ -207,12 +207,21 @@ function Contact() {
                       </div>
                     </div>
 
-                    <div className="flex flex-col items-center gap-1">
-                      <span className="flex items-center gap-1.5 text-lg font-extrabold">
-                        Hello
-                        <span className="h-2 w-2 rounded-full bg-accent-hover animate-pulse" aria-hidden="true" />
+                    <div className="flex flex-col items-center gap-2">
+                      <span className="flex items-center gap-2">
+                        <span className="zekai-wordmark bg-linear-to-r from-accent via-accent-hover to-accent bg-clip-text text-4xl font-extrabold tracking-tight text-transparent sm:text-5xl">
+                          Zek AI
+                        </span>
+                        <span
+                          className="h-2.5 w-2.5 rounded-full bg-accent-hover shadow-[0_0_10px_var(--portfolio-accent-glow)] animate-pulse"
+                          aria-hidden="true"
+                        />
                       </span>
-                      <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent">
+                      <span
+                        className="h-px w-20 bg-linear-to-r from-transparent via-accent to-transparent"
+                        aria-hidden="true"
+                      />
+                      <span className="inline-flex items-center gap-1.5 rounded-full border border-accent/25 bg-(--portfolio-accent-soft) px-3 py-1 text-[11px] font-bold uppercase tracking-[0.2em] text-accent backdrop-blur-xl">
                         <FiMessageSquare className="text-sm" aria-hidden="true" />
                         Chat
                       </span>

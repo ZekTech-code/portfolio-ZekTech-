@@ -158,6 +158,14 @@ body {
   color: var(--portfolio-text-primary);
 }
 
+/* Premium wordmark for the Zek AI chat opener in the contact section */
+.zekai-wordmark {
+  font-family: "Sora", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  filter: drop-shadow(0 2px 14px var(--portfolio-accent-glow));
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
