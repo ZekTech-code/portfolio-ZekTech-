@@ -182,7 +182,6 @@ function Hero() {
             id="hero-heading"
             variants={fadeUp}
             className="max-w-4xl text-[1.75rem] font-extrabold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
-            <span className="block text-foreground">Inibehe Ezekiel John</span>
             <span className="block text-accent">
               ZekTech
             </span>
@@ -273,7 +272,7 @@ function Hero() {
             <div className="h-full w-full overflow-hidden rounded-full border border-border/70 bg-surface">
               <img
                 src={profileImage}
-                alt="Portrait illustration of Inibehe Ezekiel John"
+                alt="Portrait illustration of ZekTech"
                 width="400"
                 height="400"
                 fetchPriority="high"

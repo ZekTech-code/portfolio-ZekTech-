@@ -1,6 +1,6 @@
 const knowledge = {
   profile: {
-    name: "Inibehe Ezekiel John",
+    name: "ZekTech",
     brand: "ZekTech",
     title: "Full-Stack Developer",
     tagline: "Building Modern Web Experiences",
